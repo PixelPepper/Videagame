@@ -1,0 +1,17 @@
+{
+  "name": "Dungeon Survivor",
+  "short_name": "DungeonSurvivor",
+  "description": "A roguelike dungeon survival game",
+  "start_url": "/",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#1a1a1a",
+  "theme_color": "#16213e",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

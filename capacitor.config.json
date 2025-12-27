@@ -1,0 +1,13 @@
+{
+  "appId": "com.dungeonsurvior.game",
+  "appName": "Dungeon Survivor",
+  "webDir": ".",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "backgroundColor": "#1a1a1a",
+    "allowMixedContent": true
+  }
+}

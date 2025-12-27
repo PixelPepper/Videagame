@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Dungeon Survivor - Roguelike</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        
+        <!-- HUD -->
+        <div id="hud">
+            <div class="hud-section">
+                <div class="stat-bar">
+                    <label>HP</label>
+                    <div class="bar health-bar">
+                        <div id="health-fill" class="bar-fill"></div>
+                    </div>
+                    <span id="health-text">100/100</span>
+                </div>
+                <div class="stat-bar">
+                    <label>Mana</label>
+                    <div class="bar mana-bar">
+                        <div id="mana-fill" class="bar-fill"></div>
+                    </div>
+                    <span id="mana-text">50/50</span>
+                </div>
+            </div>
+            <div class="hud-section">
+                <div class="hud-info">
+                    <span>Round: <strong id="round-number">1</strong></span>
+                    <span>Kills: <strong id="kill-count">0</strong></span>
+                    <span>Gold: <strong id="gold-count">0</strong></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Virtual Joystick -->
+        <div id="joystick-container">
+            <div id="joystick-base">
+                <div id="joystick-stick"></div>
+            </div>
+        </div>
+
+        <!-- Attack Button -->
+        <div id="attack-button">⚔️</div>
+
+        <!-- Special Ability Button -->
+        <div id="special-button">✨</div>
+
+        <!-- Upgrade Menu -->
+        <div id="upgrade-menu" class="modal hidden">
+            <div class="modal-content">
+                <h2>Round Complete!</h2>
+                <p class="round-stats">Kills: <span id="round-kills">0</span> | Gold Earned: <span id="round-gold">0</span></p>
+                <h3>Choose an Upgrade:</h3>
+                <div id="upgrade-options"></div>
+            </div>
+        </div>
+
+        <!-- Music Menu -->
+        <div id="music-menu" class="modal hidden">
+            <div class="modal-content">
+                <h2>Music Selection</h2>
+                <div id="music-options"></div>
+                <button class="btn" onclick="game.closeMusicMenu()">Close</button>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="game-over" class="modal hidden">
+            <div class="modal-content">
+                <h2>Game Over</h2>
+                <p>You survived <span id="final-round">0</span> rounds!</p>
+                <p>Total Kills: <span id="final-kills">0</span></p>
+                <button class="btn" onclick="game.restart()">Try Again</button>
+            </div>
+        </div>
+
+        <!-- Start Screen -->
+        <div id="start-screen" class="modal">
+            <div class="modal-content">
+                <h1>🗡️ Dungeon Survivor 🗡️</h1>
+                <p>A roguelike adventure where each round gets harder!</p>
+                <ul class="instructions">
+                    <li>Use the joystick to move</li>
+                    <li>Tap attack button to strike enemies</li>
+                    <li>Collect drops from defeated monsters</li>
+                    <li>Choose upgrades between rounds</li>
+                    <li>Survive as long as you can!</li>
+                </ul>
+                <button class="btn btn-large" onclick="game.start()">Start Game</button>
+                <button class="btn" onclick="game.openMusicMenu()">Select Music</button>
+            </div>
+        </div>
+
+        <!-- Music Toggle Button -->
+        <button id="music-toggle" onclick="game.toggleMusic()">🔊</button>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
