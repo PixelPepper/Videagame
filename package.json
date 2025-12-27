@@ -1,0 +1,24 @@
+{
+  "name": "dungeon-survivor",
+  "version": "1.0.0",
+  "description": "A roguelike dungeon survival game for Android",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "cordova-init": "cordova create android-build com.dungeonsurvior.game DungeonSurvivor",
+    "cordova-add-android": "cd android-build && cordova platform add android",
+    "cordova-build": "cd android-build && cordova build android",
+    "cordova-run": "cd android-build && cordova run android"
+  },
+  "keywords": [
+    "game",
+    "roguelike",
+    "android",
+    "mobile"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "cordova": "^12.0.0"
+  }
+}

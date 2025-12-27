@@ -1,0 +1,85 @@
+╔════════════════════════════════════════════════════════════════╗
+║                                                                ║
+║           🗡️  DUNGEON SURVIVOR - ROGUELIKE GAME  🗡️           ║
+║                                                                ║
+║                    Android Mobile Game                         ║
+║                                                                ║
+╚════════════════════════════════════════════════════════════════╝
+
+🎮 PLAY NOW (Choose One):
+
+   1. FASTEST → Open: index.html
+   
+   2. SERVER → Run: python3 -m http.server 8000
+      Then go to: http://localhost:8000
+      
+   3. TEST → Open: test-game.html
+
+
+📱 BUILD ANDROID APK:
+
+   → Run: ./build-android.sh
+   
+   (Requires: Android SDK, Node.js, Cordova)
+
+
+📖 DOCUMENTATION:
+
+   • QUICKSTART.md - Quick start guide
+   • README.md - Full documentation  
+   • FEATURES.md - Complete feature list
+
+
+🎯 WHAT'S INCLUDED:
+
+   ✅ 5 Monster Types (Basic, Fast, Tank, Ranged, Splitter)
+   ✅ 11 Upgrades (Common to Legendary)
+   ✅ 4 Drop Types (Health, Mana, Power, Gold)
+   ✅ 5 Music Tracks (Procedurally generated)
+   ✅ Touch Controls (Joystick + Action buttons)
+   ✅ Round-based Progression
+   ✅ Dynamic Difficulty Scaling
+   ✅ Particle Effects
+   ✅ Mobile Optimized
+   ✅ Android APK Ready
+
+
+🎮 CONTROLS:
+
+   Joystick (Bottom Left) → Move
+   ⚔️  Button (Bottom Right) → Attack
+   ✨  Button (Right Side) → Special Ability
+   🔊  Button (Top Right) → Music Toggle
+
+
+💡 TIPS:
+
+   • Keep moving to avoid being surrounded
+   • Balance offense and defense upgrades
+   • Use special ability (blue button) in emergencies
+   • Collect drops for health/mana/power
+   • Each round gets progressively harder
+
+
+🏆 CHALLENGE:
+
+   Can you survive past Round 10?
+   
+   
+📁 PROJECT STRUCTURE:
+
+   index.html       - Main game file
+   game.js          - Game engine (40KB of gameplay!)
+   styles.css       - Mobile-optimized UI
+   config.xml       - Android configuration
+   package.json     - Build configuration
+   build-android.sh - One-command APK builder
+
+
+═══════════════════════════════════════════════════════════════
+
+              Ready to battle? Open index.html!
+              
+                   Good luck, Hero! 🗡️
+
+═══════════════════════════════════════════════════════════════

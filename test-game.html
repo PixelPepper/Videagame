@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dungeon Survivor - Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a2e;
+            color: #fff;
+        }
+        .test-section {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        .test-result {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .pass { background: #4CAF50; }
+        .fail { background: #F44336; }
+        button {
+            background: #4444ff;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        button:hover {
+            background: #6666ff;
+        }
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: 2px solid #444;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎮 Dungeon Survivor - Test Page</h1>
+    
+    <div class="test-section">
+        <h2>File Tests</h2>
+        <div id="file-tests"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Quick Start</h2>
+        <button onclick="window.location.href='index.html'">Launch Game</button>
+        <button onclick="testInFrame()">Test in Frame</button>
+        <button onclick="runAllTests()">Run All Tests</button>
+    </div>
+    
+    <div id="frame-container" style="display:none;">
+        <div class="test-section">
+            <h2>Game Preview</h2>
+            <iframe id="game-frame" src=""></iframe>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Features Checklist</h2>
+        <ul>
+            <li>✅ Roguelike gameplay with rounds</li>
+            <li>✅ Multiple monster types (5 varieties)</li>
+            <li>✅ Drop system (health, mana, power-ups, gold)</li>
+            <li>✅ Upgrade menu between rounds</li>
+            <li>✅ Dynamic difficulty scaling</li>
+            <li>✅ Touch controls (joystick + buttons)</li>
+            <li>✅ Music system with 5 tracks</li>
+            <li>✅ Particle effects</li>
+            <li>✅ Mobile-optimized UI</li>
+            <li>✅ Android packaging setup</li>
+        </ul>
+    </div>
+    
+    <div class="test-section">
+        <h2>Build Instructions</h2>
+        <ol>
+            <li><strong>Test in Browser:</strong> Open index.html or run: <code>python3 -m http.server 8000</code></li>
+            <li><strong>Build Android APK:</strong> Run: <code>./build-android.sh</code></li>
+            <li><strong>Install on Device:</strong> Enable USB debugging and run: <code>cordova run android</code></li>
+        </ol>
+    </div>
+
+    <script>
+        function testInFrame() {
+            document.getElementById('frame-container').style.display = 'block';
+            document.getElementById('game-frame').src = 'index.html';
+        }
+
+        function runAllTests() {
+            const tests = [
+                { name: 'index.html exists', test: () => fetch('index.html').then(r => r.ok) },
+                { name: 'styles.css exists', test: () => fetch('styles.css').then(r => r.ok) },
+                { name: 'game.js exists', test: () => fetch('game.js').then(r => r.ok) },
+                { name: 'config.xml exists', test: () => fetch('config.xml').then(r => r.ok) },
+                { name: 'package.json exists', test: () => fetch('package.json').then(r => r.ok) },
+            ];
+
+            const container = document.getElementById('file-tests');
+            container.innerHTML = '<p>Running tests...</p>';
+
+            Promise.all(tests.map(t => 
+                t.test().then(pass => ({ name: t.name, pass }))
+                .catch(() => ({ name: t.name, pass: false }))
+            )).then(results => {
+                container.innerHTML = results.map(r => 
+                    `<div class="test-result ${r.pass ? 'pass' : 'fail'}">
+                        ${r.pass ? '✅' : '❌'} ${r.name}
+                    </div>`
+                ).join('');
+            });
+        }
+
+        // Run tests on load
+        runAllTests();
+    </script>
+</body>
+</html>
